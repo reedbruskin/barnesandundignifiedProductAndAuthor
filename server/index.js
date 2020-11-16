@@ -17,7 +17,6 @@ app.get('/product/:isbn13', (req, res) => {
   db.ProductDetails.findOne({isbn13: req.params.isbn13})
 
   .then ((record)=> {
-    // handle success
     console.log("record is", record);
     if (record === null) {
       throw 'Record not found or isbn is not valid';
@@ -26,7 +25,6 @@ app.get('/product/:isbn13', (req, res) => {
     }
   })
   .catch((error)=> {
-    //handle error
     console.log(error);
     res.status(500).send(error);
   })

@@ -4,8 +4,9 @@ const outPut = path.join(__dirname, './client/dist');
 
 
 module.exports = {
- entry: entryPath,
- module: {
+  mode: 'development',
+  entry: entryPath,
+  module: {
    rules: [
      {
        test: [/\.jsx$/],

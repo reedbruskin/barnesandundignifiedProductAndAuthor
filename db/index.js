@@ -13,17 +13,18 @@ db.once('open', function() {
 
 let productDetailsSchema = mongoose.Schema({
   isbn13: String,
+  bookTitle: String,
+  author: String,
   publisherName: String,
   publisherLink: String,
   publicationDate: Date,
   series: String,
-  soldBy: String,
   editionDescription: String,
-  format: String,
   pages: Number,
   salesRank: Number,
-  productDimenstions: String,
-  fileSize: String
+  productDimensions: String,
+  fileSize: String,
+  bookCategory: String
 });
 
 let ProductDetails = mongoose.model('ProductDetails', productDetailsSchema);
