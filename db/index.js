@@ -1,14 +1,12 @@
 
 const mongoose = require('mongoose');
 
-
-
-mongoose.connect("mongodb://localhost/productDetails", {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost/productDetails', {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  console.log('we are connected!')
+  console.log('we are connected!');
 });
 
 let productDetailsSchema = mongoose.Schema({
@@ -36,4 +34,4 @@ let saveproductDetailsToDB = (productDetails) => {
 
 };*/
 //module.exports.save = save;
-module.exports.ProductDetails = ProductDetails
+module.exports.ProductDetails = ProductDetails;

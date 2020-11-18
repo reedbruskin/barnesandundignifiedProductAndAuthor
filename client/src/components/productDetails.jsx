@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from "react-dom";
+import ReactDOM from 'react-dom';
 class ProductDetails extends React.Component {
   render() {
     const series = this.props.record.series;
@@ -8,45 +8,45 @@ class ProductDetails extends React.Component {
     const size = this.props.record.fileSize;
 
     let seriesRender;
-    if (series !== "") {
+    if (series !== '') {
       seriesRender = <tr>
-                        <th>Series: </th>
-                        <td>{series}</td>
-                      </tr>
+        <th>Series: </th>
+        <td>{series}</td>
+      </tr>;
     }
 
     let editionRender;
-    if (edition !== "") {
-    editionRender = <tr>
-                      <th>Edition description: </th>
-                      <td>{edition}</td>
-                    </tr>
+    if (edition !== '') {
+      editionRender = <tr>
+        <th>Edition description: </th>
+        <td>{edition}</td>
+      </tr>;
     }
 
     let dimensionsRender;
-    if (dimensions !== "") {
-    dimensionsRender = <tr>
-                         <th>Product dimensions: </th>
-                         <td>{dimensions}</td>
-                       </tr>
+    if (dimensions !== '') {
+      dimensionsRender = <tr>
+        <th>Product dimensions: </th>
+        <td>{dimensions}</td>
+      </tr>;
     }
 
     let sizeRender;
-    if (size !== "") {
+    if (size !== '') {
       sizeRender = <tr>
-                      <th>File size: </th>
-                      <td>{size}</td>
-                  </tr>
+        <th>File size: </th>
+        <td>{size}</td>
+      </tr>;
 
     }
 
     const dateStr = this.props.record.publicationDate;
     let dateRender;
     let date = new Date(dateStr);
-    dateRender= <tr>
-                  <th>Publication Date: </th>
-                  <td>{date.toLocaleDateString('en-US')}</td>
-                </tr>
+    dateRender = <tr>
+      <th>Publication Date: </th>
+      <td>{date.toLocaleDateString('en-US')}</td>
+    </tr>;
 
     return (
 
@@ -63,19 +63,19 @@ class ProductDetails extends React.Component {
             </td>
           </tr>
 
-        {dateRender}
-        <tr>
-          <th>Pages: </th>
-          <td>{this.props.record.pages}</td>
-        </tr>
-        <tr>
-          <th>Sales Rank: </th>
-          <td>{this.props.record.salesRank}</td>
-        </tr>
-        {seriesRender}
-        {editionRender}
-        {dimensionsRender}
-        {sizeRender}
+          {dateRender}
+          <tr>
+            <th>Pages: </th>
+            <td>{this.props.record.pages}</td>
+          </tr>
+          <tr>
+            <th>Sales Rank: </th>
+            <td>{this.props.record.salesRank}</td>
+          </tr>
+          {seriesRender}
+          {editionRender}
+          {dimensionsRender}
+          {sizeRender}
 
         </tbody>
       </table>
