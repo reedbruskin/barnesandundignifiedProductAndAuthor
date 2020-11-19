@@ -10,7 +10,7 @@ app.use(express.json());
 
 
 
-app.get('/product/:isbn13', (req, res) => {
+app.get('/products/:isbn13', (req, res) => {
   console.log('ISBN:', req.params.isbn13);
   db.ProductDetails.findOne({isbn13: req.params.isbn13})
 
@@ -27,6 +27,11 @@ app.get('/product/:isbn13', (req, res) => {
       res.status(500).send(error);
     });
 });
+
+app.get('/publisher', (req, res) => {
+  res.status(200).send('Publisher Books');
+});
+
 
 // for future use by other group members
 app.get('/category/:bookCategory', (req, res) => {

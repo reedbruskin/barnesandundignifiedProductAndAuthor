@@ -1,6 +1,6 @@
 const Database = require ('./index.js');
 /*
-// for next stages that we will have records with the same ISBN-13
+// for next stages that we will create records with the same ISBN-13
 const product = new Database.ProductDetails({
   isbn13: "9780062011688",
   publisherName: "HarperCollins e-books",
@@ -73,6 +73,7 @@ for (var i = 0; i < 200; i++) {
 
   let publishers = ['HarperCollins e-books', 'Princeton University Press', 'Norton, W. W. & Company, Inc.', 'Little, Brown and Company', 'Scribner', 'St. Martin\'\'s Publishing Group', 'Regnery Publishing', 'IDW Publishing', 'Potter/Ten Speed/Harmony/Rodale', 'Chronicle Books LLC', 'Simon & Schuster'];
   let randomPublisher = getRandomValueFromArr(publishers);
+
   newRecord.publisherName = randomPublisher;
 
   newRecord.publisherLink = '/publisher';
@@ -83,9 +84,13 @@ for (var i = 0; i < 200; i++) {
   let randomSeries = getRandomValueFromArr(series);
   newRecord.series = randomSeries;
 
-  let editionDescription = ['', 'Reprint', 'Sixth Edition', 'New Edition', 'Second Edition'];
-  let randomEditionDescription = getRandomValueFromArr(editionDescription);
-  newRecord.editionDescription = randomEditionDescription;
+  let bookCategories = ['Nonfiction', 'Fiction', 'History', 'Fantasy', 'Romance', 'Home and garden', 'Graphic novel', 'Humor', 'Autobiography', 'Business/economics', 'Cookbook', 'Diary'];
+  let randomBookCategory = getRandomValueFromArr(bookCategories);
+  newRecord.bookCategory = randomBookCategory;
+
+  let ageRange = ["", "6-8 Years", "18 years", "4-8 years", "10 years", "13 years", "40 years"];
+  let randomAgeRange = getRandomValueFromArr(ageRange);
+  newRecord.ageRange = randomAgeRange;
 
   //pages
   newRecord.pages = getRandomIntInclusive(150, 1000);
@@ -93,20 +98,36 @@ for (var i = 0; i < 200; i++) {
   // sales rank
   newRecord.salesRank = getRandomIntInclusive(0, 6000000000);
 
+  let format = ["", "NOOK Book"];
+
+  let randomFormat = getRandomValueFromArr(format);
+  newRecord.format = randomFormat;
+
+  if (newRecord.format === "NOOK Book") {
+    let soldBy = ["Barnes & Noble", "Penguin Random House Publisher Services", "Charles River Editors", "Sai ePublications", "HarperCollins Publishers", "SIMON & SCHUSTER", "Random House"];
+    let randomSoldBy = getRandomValueFromArr(soldBy);
+    newRecord.soldBy = randomSoldBy;
+
+    let fileSize = ['', '5 MB', '3 MB', '2 MB'];
+    let randomFileSize = getRandomValueFromArr(fileSize);
+    newRecord.fileSize = randomFileSize;
+
+    let note = ["", "This product may take a few minutes to load!", "This product may take a few minutes to download."];
+    let randomNote = getRandomValueFromArr(note);
+    newRecord.note = randomNote;
+
+  } else {
+
+  let editionDescription = ['', 'Reprint', 'Sixth Edition', 'New Edition', 'Second Edition'];
+  let randomEditionDescription = getRandomValueFromArr(editionDescription);
+  newRecord.editionDescription = randomEditionDescription;
 
   let productDimensions = ['', ' 6.30(w) x 9.00(h) x 1.40(d)', '6.13(w) x 9.25(h) x (d)', '5.50(w) x 8.25(h) x 1.11(d)', '5.40(w) x 8.20(h) x 0.80(d)', '5.50(w) x 8.50(h) x 1.10(d)'];
   let randomProductDimensions = getRandomValueFromArr(productDimensions);
   newRecord.productDimensions = randomProductDimensions;
 
-  let fileSize = ['', '5 MB', '3 MB', '2 MB'];
-  let randomFileSize = getRandomValueFromArr(fileSize);
-  newRecord.fileSize = randomFileSize;
+  }
 
-  let bookCategories = ['Nonfiction', 'Fiction', 'History', 'Fantasy', 'Romance', 'Home and garden', 'Graphic novel', 'Humor', 'Autobiography', 'Business/economics', 'Cookbook', 'Diary'];
-  let randomBookCategory = getRandomValueFromArr(bookCategories);
-  newRecord.bookCategory = randomBookCategory;
-
-  let soldBy = [];
   const product = new Database.ProductDetails(newRecord);
   product.save()
     .then(product => console.log('The product ' + product.isbn13 + ' has been added.'))

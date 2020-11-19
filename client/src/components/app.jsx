@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-const axios = require('axios');
+import axios from 'axios';
 import ProductDetails from './productDetails.jsx';
 
 
@@ -19,15 +19,20 @@ class App extends React.Component {
         salesRank: undefined,
         productDimensions: '',
         fileSize: '',
+        note: '',
+        ageRange: '',
+        soldBy: '',
+        format: '',
+
       }
     };
   }
 
   componentDidMount() {
-    axios.get('/product/22954906433789')
+    axios.get('/products/53211470974772')
       .then((response)=> {
       // handle success
-        console.log('get the specific book:', response);
+        console.log('get a specific book:', response);
         this.setState({book: response.data});
       })
       .catch((error)=> {
@@ -40,7 +45,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2 className="text--center mb-s">Product Details</h2>
+        <h2 className="productDetails">Product Details</h2>
         <ProductDetails
           record={this.state.book}
         />

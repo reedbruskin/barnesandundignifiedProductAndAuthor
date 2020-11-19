@@ -22,7 +22,11 @@ let productDetailsSchema = mongoose.Schema({
   salesRank: Number,
   productDimensions: String,
   fileSize: String,
-  bookCategory: String
+  bookCategory: String,
+  note: String,
+  ageRange: String,
+  soldBy: String,
+  format: String
 });
 
 let ProductDetails = mongoose.model('ProductDetails', productDetailsSchema);

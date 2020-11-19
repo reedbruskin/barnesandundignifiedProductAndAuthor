@@ -6,6 +6,10 @@ class ProductDetails extends React.Component {
     const edition = this.props.record.editionDescription;
     const dimensions = this.props.record.productDimensions;
     const size = this.props.record.fileSize;
+    const sold = this.props.record.soldBy;
+    const format = this.props.record.format;
+    const note = this.props.record.note;
+    const age = this.props.record.ageRange;
 
     let seriesRender;
     if (series !== '') {
@@ -16,7 +20,7 @@ class ProductDetails extends React.Component {
     }
 
     let editionRender;
-    if (edition !== '') {
+    if (edition !== undefined && edition !== '') {
       editionRender = <tr>
         <th>Edition description: </th>
         <td>{edition}</td>
@@ -24,7 +28,7 @@ class ProductDetails extends React.Component {
     }
 
     let dimensionsRender;
-    if (dimensions !== '') {
+    if (dimensions !== undefined && dimensions !== '') {
       dimensionsRender = <tr>
         <th>Product dimensions: </th>
         <td>{dimensions}</td>
@@ -32,12 +36,43 @@ class ProductDetails extends React.Component {
     }
 
     let sizeRender;
-    if (size !== '') {
+    if (size !== undefined && size !== '') {
       sizeRender = <tr>
         <th>File size: </th>
         <td>{size}</td>
       </tr>;
+    }
 
+    let soldByRender;
+    if (sold !== '' && sold !== undefined) {
+      soldByRender = <tr>
+        <th>Sold by:</th>
+        <td>{sold}</td>
+      </tr>;
+    }
+
+    let formatRender;
+    if (format !== '') {
+      formatRender = <tr>
+        <th>Format:</th>
+        <td>{format}</td>
+      </tr>;
+    }
+
+    let noteRender;
+    if (note !== undefined && note !== '') {
+      noteRender = <tr>
+        <th>Note</th>
+        <td>{note}</td>
+      </tr>;
+    }
+
+    let ageRangeRender;
+    if (age !== '') {
+      ageRangeRender = <tr>
+        <th>Age range</th>
+        <td>{age}</td>
+      </tr>;
     }
 
     const dateStr = this.props.record.publicationDate;
@@ -64,6 +99,10 @@ class ProductDetails extends React.Component {
           </tr>
 
           {dateRender}
+          {seriesRender}
+          {soldByRender}
+          {formatRender}
+          {editionRender}
           <tr>
             <th>Pages: </th>
             <td>{this.props.record.pages}</td>
@@ -72,10 +111,11 @@ class ProductDetails extends React.Component {
             <th>Sales Rank: </th>
             <td>{this.props.record.salesRank}</td>
           </tr>
-          {seriesRender}
-          {editionRender}
-          {dimensionsRender}
+
           {sizeRender}
+          {dimensionsRender}
+          {noteRender}
+          {ageRangeRender}
 
         </tbody>
       </table>
