@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from "react-dom";
-const axios = require('axios');
+import ReactDOM from 'react-dom';
+import axios from 'axios';
 import ProductDetails from './productDetails.jsx';
 
 
@@ -8,42 +8,47 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        book: {
-        isbn13: "",
-        publisherName: "",
-        publisherLink: "",
-        publicationDate: "",
-        series: "",
-        editionDescription: "",
+      book: {
+        isbn13: '',
+        publisherName: '',
+        publisherLink: '',
+        publicationDate: '',
+        series: '',
+        editionDescription: '',
         pages: undefined,
         salesRank: undefined,
-        productDimensions: "",
-        fileSize: "",
+        productDimensions: '',
+        fileSize: '',
+        note: '',
+        ageRange: '',
+        soldBy: '',
+        format: '',
+
       }
     };
   }
 
   componentDidMount() {
-    axios.get('/product/22954906433789')
-    .then((response)=> {
+    axios.get('/products/53211470974772')
+      .then((response)=> {
       // handle success
-      console.log('get the specific book:', response);
-      this.setState({book: response.data})
-    })
-    .catch((error)=> {
+        console.log('get a specific book:', response);
+        this.setState({book: response.data});
+      })
+      .catch((error)=> {
       // handle error
-      console.log('error:', error);
-    })
+        console.log('error:', error);
+      });
 
   }
 
   render() {
     return (
       <div>
-        <h2 className="text--center mb-s">Product Details</h2>
-       <ProductDetails
-         record={this.state.book}
-       />
+        <h2 className="productDetails">Product Details</h2>
+        <ProductDetails
+          record={this.state.book}
+        />
       </div>
     );
   }
