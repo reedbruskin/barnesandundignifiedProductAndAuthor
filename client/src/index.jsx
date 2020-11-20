@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import App from './components/app.jsx';
 
 ReactDOM.render(
-  <App />,
+  <App isbn13={'9781524763169'}/>,
   document.getElementById('app'));
 
 

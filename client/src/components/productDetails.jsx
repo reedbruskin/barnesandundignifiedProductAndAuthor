@@ -15,7 +15,7 @@ class ProductDetails extends React.Component {
     if (series !== '') {
       seriesRender = <tr>
         <th>Series: </th>
-        <td>{series}</td>
+        <td> <a href={this.props.record.seriesLink}>{series}</a></td>
       </tr>;
     }
 
@@ -85,7 +85,7 @@ class ProductDetails extends React.Component {
 
     return (
 
-      <table className="table">
+      <table align="center">
         <tbody>
           <tr>
             <th>ISBN-13: </th>

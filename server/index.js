@@ -32,6 +32,9 @@ app.get('/publisher', (req, res) => {
   res.status(200).send('Publisher Books');
 });
 
+app.get('/series', (req, res) => {
+  res.status(200).send('All the books in this series');
+});
 
 // for future use by other group members
 app.get('/category/:bookCategory', (req, res) => {

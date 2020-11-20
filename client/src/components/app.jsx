@@ -14,6 +14,7 @@ class App extends React.Component {
         publisherLink: '',
         publicationDate: '',
         series: '',
+        seriesLink: '',
         editionDescription: '',
         pages: undefined,
         salesRank: undefined,
@@ -29,7 +30,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/products/53211470974772')
+    console.log('ISBN13 Props:', this.props.isbn13);
+    axios.get(`/products/${this.props.isbn13}`)
       .then((response)=> {
       // handle success
         console.log('get a specific book:', response);
@@ -45,7 +47,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h2 className="productDetails">Product Details</h2>
+        <h2>Product Details</h2>
         <ProductDetails
           record={this.state.book}
         />
