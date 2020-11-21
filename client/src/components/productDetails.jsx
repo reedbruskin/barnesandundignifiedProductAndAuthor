@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 class ProductDetails extends React.Component {
   render() {
+    //console.log('ProductDetails react instance');
     const series = this.props.record.series;
     const edition = this.props.record.editionDescription;
     const dimensions = this.props.record.productDimensions;
@@ -15,7 +16,7 @@ class ProductDetails extends React.Component {
     if (series !== '') {
       seriesRender = <tr>
         <th>Series: </th>
-        <td> <a href={this.props.record.seriesLink}>{series}</a></td>
+        <td><a href={this.props.record.seriesLink}>{series}</a></td>
       </tr>;
     }
 
@@ -85,7 +86,7 @@ class ProductDetails extends React.Component {
 
     return (
 
-      <table align="center">
+      <table className="productDetailsTB">
         <tbody>
           <tr>
             <th>ISBN-13: </th>

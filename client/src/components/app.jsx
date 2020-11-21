@@ -31,17 +31,17 @@ class App extends React.Component {
 
   componentDidMount() {
     console.log('ISBN13 Props:', this.props.isbn13);
-    axios.get(`/products/${this.props.isbn13}`)
+    return axios.get(`http://localhost:5001/products/${this.props.isbn13}`)
       .then((response)=> {
       // handle success
         console.log('get a specific book:', response);
         this.setState({book: response.data});
+        return response;
       })
       .catch((error)=> {
       // handle error
         console.log('error:', error);
       });
-
   }
 
   render() {

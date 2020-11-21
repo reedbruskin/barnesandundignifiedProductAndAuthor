@@ -1,0 +1,33 @@
+/*import 'jsdom-global/register'; //at the top of file , even  , before importing react
+//import regeneratorRuntime from "regenerator-runtime";
+import App from '../src/components/app.jsx';
+import ProductDetails from '../src/components/productDetails.jsx';
+import React from 'react';
+import TestRenderer from 'react-test-renderer';
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+//import nock from 'nock' // v9.0.2
+//const host = 'http://localhost:5001';
+
+
+configure({ adapter: new Adapter() });
+
+import { shallow, mount, render } from 'enzyme';
+
+describe('Checking that App comoponent really use the express.js server', () => {
+
+  it ('renders the inner productDetails',  async () => {
+    const wrapper =  await mount(<App isbn13={'9781524763169'} />)
+    await wrapper.instance().componentDidMount();
+
+    expect(wrapper.debug()).toMatchSnapshot();
+    expect(wrapper.find(ProductDetails).length).toEqual(1);
+  });
+});*/
+
+
+
+
+
+

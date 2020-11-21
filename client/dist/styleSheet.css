@@ -1,22 +1,44 @@
-.h2 {
-  font-family: Poynter,Georgia,serif;
-  font-weight: 500;
-  font-style: normal;
-  margin: 0;
-  line-height: 1.25;
-  font-size: 1.875rem;
+
+h2 {
   text-align: center;
-  margin-bottom: 50px;
+  font-family: 'Playfair', Georgia, serif;
+  display: block;
+  font-size: 1.5em;
+  margin: 0.83em 0;
+  font-weight: 400;
+  text-align: center;
+  width:100%;
+  align-self: center;
 }
 
-.table {
+/*
+font-family: Poynter,Georgia,serif;
+    font-weight: 500;
+    font-style: normal;
+    margin: 0;
+    line-height: 1.25;
+    font-size: 1.875rem;
+}*/
+
+
+table .productDetailsTB {
   display: block;
   margin-left: auto;
   margin-right: auto;
 
-  font-family: Lato,sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: .9375rem;
-    border-collapse: collapse;
+
+
+    /*font-size: .9375rem;
+    font-size: 1.0625rem;
+    line-height: 1.88235;*/
+    border-collapse:collapse;
 }
+
+td th {
+  font-family: 'Lato', sans-serif;
+  display: table-cell;
+  font-weight: 400;
+  font-size: 14px;
+  font-style: normal;
+}
+
