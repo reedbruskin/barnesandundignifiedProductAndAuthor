@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match the snapshot 1`] = `
+"<App isbn13=\\"9781571311931\\">
+  <div>
+    <h2>
+      Product Details
+    </h2>
+    <ProductDetails record={{...}}>
+      <table className=\\"productDetailsTB\\">
+        <tbody>
+          <tr>
+            <th>
+              ISBN-13: 
+            </th>
+            <td />
+          </tr>
+          <tr>
+            <th>
+              Publisher: 
+            </th>
+            <td>
+              <a href=\\"\\" />
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Publication Date: 
+            </th>
+            <td>
+              Invalid Date
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Pages: 
+            </th>
+            <td />
+          </tr>
+          <tr>
+            <th>
+              Sales Rank: 
+            </th>
+            <td />
+          </tr>
+        </tbody>
+      </table>
+    </ProductDetails>
+  </div>
+</App>"
+`;

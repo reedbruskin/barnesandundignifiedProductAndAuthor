@@ -1,5 +1,6 @@
+import 'jsdom-global/register';
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import App from './app';
 
 const exampleRecord =
@@ -29,13 +30,13 @@ jest.mock('axios', () => {
 
 const axios = require('axios');
 
-it('fetch book record on #componentDidMount', async (done) => {
-  const app = await shallow(<App isbn13={'9781571311931'}/>);
+it ('fetch book record on #componentDidMount', async (done) => {
+  const wrapper = await shallow(<App isbn13={'9781571311931'}/>);
   expect(axios.get).toHaveBeenCalled();
   expect(axios.get).toHaveBeenCalledWith('http://localhost:5001/products/9781571311931');
   // console.log(app.state());
 
-  expect(app.state()).toHaveProperty('book', exampleRecord);
+  expect(wrapper.state()).toHaveProperty('book', exampleRecord);
   done();
 
   // Promises way:
@@ -49,3 +50,9 @@ it('fetch book record on #componentDidMount', async (done) => {
   //     done();
   //   });
 });
+
+it ('should match the snapshot', async (done) => {
+  const wrapper = await mount(<App isbn13={'9781571311931'}/>);
+  expect(wrapper.debug()).toMatchSnapshot();
+  done();
+})
