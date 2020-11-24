@@ -7,8 +7,10 @@ class Tabs extends Component {
     super(props);
 
     this.state = {
+      //the tab text
       activeTab: this.props.children[0].props.label,
     };
+
     this.onClickTabItem = this.onClickTabItem.bind(this);
 
   }
@@ -17,35 +19,28 @@ class Tabs extends Component {
     this.setState({ activeTab: tab });
   }
   render() {
-    const {
-      onClickTabItem,
-      props: {
-        children,
-      },
-      state: {
-        activeTab,
-      }
-    } = this;
 
     return (
       <div className="tabs">
+        {/*tabs Names*/}
         <ol className="tab-list">
-          {children.map((child) => {
-            const { label } = child.props;
+          {this.props.children.map((child) => {
+            const label = child.props.label;
 
             return (
               <Tab
-                activeTab={activeTab}
+                activeTab={this.state.activeTab}
                 key={label}
                 label={label}
-                onClick={onClickTabItem}
+                onClick={this.onClickTabItem}
               />
             );
           })}
         </ol>
+        {/*the tab content depends on which tab you select*/}
         <div className="tab-content">
-          {children.map((child) => {
-            if (child.props.label !== activeTab) { return undefined; }
+          {this.props.children.map((child) => {
+            if (child.props.label !== this.state.activeTab) { return undefined; }
             return child.props.children;
           })}
         </div>
