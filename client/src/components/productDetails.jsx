@@ -85,42 +85,45 @@ class ProductDetails extends React.Component {
     </tr>;
 
     return (
+      <div className="wrapper">
+        <div className="slide">
+          <h2>Product Details</h2>
+          <table>
+            <tbody>
+              <tr>
+                <th>ISBN-13: </th>
+                <td>{this.props.record.isbn13}</td>
+              </tr>
+              <tr>
+                <th>Publisher: </th>
+                <td>
+                  <a href={this.props.record.publisherLink}>{this.props.record.publisherName}</a>
+                </td>
+              </tr>
 
-      <table className="productDetailsTB">
-        <tbody>
-          <tr>
-            <th>ISBN-13: </th>
-            <td>{this.props.record.isbn13}</td>
-          </tr>
-          <tr>
-            <th>Publisher: </th>
-            <td>
-              <a href={this.props.record.publisherLink}>{this.props.record.publisherName}</a>
-            </td>
-          </tr>
+              {dateRender}
+              {seriesRender}
+              {soldByRender}
+              {formatRender}
+              {editionRender}
+              <tr>
+                <th>Pages: </th>
+                <td>{this.props.record.pages}</td>
+              </tr>
+              <tr>
+                <th>Sales Rank: </th>
+                <td>{this.props.record.salesRank}</td>
+              </tr>
 
-          {dateRender}
-          {seriesRender}
-          {soldByRender}
-          {formatRender}
-          {editionRender}
-          <tr>
-            <th>Pages: </th>
-            <td>{this.props.record.pages}</td>
-          </tr>
-          <tr>
-            <th>Sales Rank: </th>
-            <td>{this.props.record.salesRank}</td>
-          </tr>
+              {sizeRender}
+              {dimensionsRender}
+              {noteRender}
+              {ageRangeRender}
 
-          {sizeRender}
-          {dimensionsRender}
-          {noteRender}
-          {ageRangeRender}
-
-        </tbody>
-      </table>
-
+            </tbody>
+          </table>
+        </div>
+      </div>
 
 
     );

@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import ProductDetails from './productDetails.jsx';
+import Tabs from "./tabs.jsx";
+import "./app.css";
 
 
 class App extends React.Component {
@@ -46,15 +48,20 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Product Details</h2>
-        <ProductDetails
-          record={this.state.book}
-        />
+      <div className="tabsBox">
+        <Tabs>
+          <div label="Product Details">
+            <ProductDetails
+              record={this.state.book}
+            />
+          </div>
+          <div label="Author">
+            About the author
+          </div>
+        </Tabs>
       </div>
     );
   }
 }
-
 
 export default App;
