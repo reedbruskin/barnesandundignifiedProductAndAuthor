@@ -96,3 +96,26 @@ a:active {
 @keyframes slide {
   100% { left: 0; }
 }
+
+.tab-list {  border-bottom: 1px solid #ccc;
+  padding-left: 50;
+}
+
+.tab-list-item {
+  display: inline-block;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 1rem 1.3rem;
+  color: rgba(22, 110, 22, 0.897);
+}
+
+.tab-list-item:hover {
+  text-decoration: underline;
+}
+.tab-list-active {
+  background-color: white;
+  border: solid #ccc;
+  border-width: 1px 1px 0 1px;
+  color: black;
+  text-decoration: underline;
+}

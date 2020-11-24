@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import ProductDetails from './productDetails.jsx';
 import Tabs from './tabs.jsx';
-import './app.css';
+//import './app.css';
 
 
 class App extends React.Component {
